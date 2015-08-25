@@ -5,7 +5,9 @@ class GrOsmosdr < Formula
   url "http://cgit.osmocom.org/gr-osmosdr/snapshot/gr-osmosdr-0.1.4.tar.gz"
   sha1 "672041a6ffa767d39ffad2432e2a13c11e3ec984"
 
+  depends_on :python
   depends_on "cmake" => :build
+  depends_on "gnuradio"
 
   def install
     mkdir "build" do
