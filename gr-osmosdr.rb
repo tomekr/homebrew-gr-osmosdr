@@ -9,7 +9,12 @@ class GrOsmosdr < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = []
+      args << "-DPYTHON_EXECUTABLE='#{%x(python-config --prefix).chomp}/bin/python'"
+      args << "-DPYTHON_INCLUDE_DIR='#{%x(python-config --prefix).chomp}/include/python2.7'"
+      args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
+
+      system "cmake", "..", *args, *std_cmake_args
       system "make", "install"
     end
   end
