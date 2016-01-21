@@ -7,7 +7,6 @@ class GrOsmosdr < Formula
 
   depends_on :python
   depends_on "cmake" => :build
-  depends_on "gnuradio"
 
   def install
     mkdir "build" do
